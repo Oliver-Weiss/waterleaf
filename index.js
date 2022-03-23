@@ -63,7 +63,7 @@ client.on('messageCreate', async message => {
 
     if (command == "inventory") {
         const target = message.author;
-        const user = await Users.findOne({where: {user_id: target.user}});
+        const user = await Users.findOne({where: {user_id: message.author.id}});
         const items = await user.getItems();
 
         if (!items.length) return message.reply(`${target.tag} has nothing!`);

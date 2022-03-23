@@ -31,7 +31,7 @@ Reflect.defineProperty(Users.prototype, 'addItem', {
 });
 
 Reflect.defineProperty(Users.prototype, 'getItems', {
-    value: () => {
+    value: function getItems () {
         return UserItems.findAll({
             where: {user_id: this.user_id},
             include: ['item'],
